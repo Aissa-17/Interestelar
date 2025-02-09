@@ -1,0 +1,146 @@
+body {
+    font-family: 'Orbitron', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #000, #111, #222);
+    color: #fff;
+    text-align: center;
+    overflow-x: hidden;
+}
+header {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 15px 0;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+.logo{
+    height: 5em;
+    width: 5em;
+    border-radius: 100%;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    align-items: center;
+}
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+nav ul li a:hover {
+    color: #f4a261;
+}
+.banner {
+    text-align: center;
+    background: url('img/banner.jpg') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(2px);
+}
+.banner h1 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background: #f4a261;
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+.btn:hover {
+    transform: scale(1.1);
+    background: #e76f51;
+}
+section {
+    padding: 60px 20px;
+}
+.actor img, .imagenes img {
+    width: 250px;
+    border-radius: 15px;
+    margin: 15px;
+    transition: transform 0.3s;
+}
+.actor img:hover, .imagenes img:hover {
+    transform: scale(1.1);
+}
+.contenedor-actores{
+    display: flex;
+    flex-wrap: wrap;
+    grid-gap: 10px;
+}
+
+.contacto button{
+    border-radius: 10px;
+}
+.contacto input{
+    border-radius: 10px;
+}
+
+form {
+    max-width: 500px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+}
+form label, form input, form textarea, form button {
+    display: block;
+    width: 100%;
+    margin: 15px 0;
+}
+form button {
+    padding: 12px;
+    background: #f4a261;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+form button:hover {
+    background: #e76f51;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.footer-content {
+    background-color: #1f1f1f;
+    text-align: center;
+    padding: 2rem 0;
+}
+.footer-content ul {
+    list-style: none;
+}
+.footer-content a {
+    text-decoration: none;
+    color: red;
+}
+.social-links a i img{
+    width: 3em;
+    height: 3em;
+    border-radius: 100%;
+}
