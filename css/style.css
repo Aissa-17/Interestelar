@@ -43,6 +43,99 @@ nav ul li a {
 nav ul li a:hover {
     color: #f4a261;
 }
+
+#noticias {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #111;
+    color: #fff;
+}
+
+#noticias h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.noticias-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.noticia {
+    background: #222;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.noticia:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(255, 255, 255, 0.2);
+}
+
+.noticia img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.noticia h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.noticia p {
+    font-size: 1em;
+    color: #bbb;
+}
+
+video {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    outline: none;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+button {
+    background-color: #e67e22;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    margin: 5px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #d35400;
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
 .banner {
     text-align: center;
     background: url('img/banner.jpg') no-repeat center center/cover;
@@ -75,6 +168,60 @@ nav ul li a:hover {
 section {
     padding: 60px 20px;
 }
+
+#sinopsis {
+    background: #222;
+    color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    max-width: 700px;
+    margin: 40px auto;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.8;
+}
+
+#sinopsis h2 {
+    font-size: 24px;
+    color: #f39c12;
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#sinopsis p {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    transition: transform 0.3s ease;
+}
+
+#sinopsis p:hover {
+    transform: scale(1.03);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+#sinopsis strong {
+    color: #e67e22;
+}
+
+#sinopsis p::before {
+    content: "🎬";
+    font-size: 18px;
+    margin-right: 8px;
+}
+
+#sinopsis p:nth-child(3)::before {
+    content: "🚜";
+}
+
+#sinopsis p:nth-child(5)::before {
+    content: "⏳";
+}
+
 .actor img, .imagenes img {
     width: 250px;
     border-radius: 15px;
@@ -96,6 +243,57 @@ section {
 .contacto input{
     border-radius: 10px;
 }
+
+#testimonios {
+    background-color: #f4f4f4;
+    padding: 50px 0;
+    text-align: center;
+}
+
+#testimonios h2 {
+    color: #000;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.testimonios-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 0 15px;
+}
+
+.testimonio {
+    padding: 20px;
+    width: 300px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.testimonio blockquote {
+    font-size: 1.1em;
+    font-style: italic;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.testimonio p {
+    font-size: 1em;
+    font-weight: bold;
+    color: #333;
+}
+
+.testimonio:hover {
+    transform: translateY(-10px);
+}
+
+.testimonio:hover blockquote {
+    color: #ff6347;
+}
+
 
 form {
     max-width: 500px;

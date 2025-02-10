@@ -6,6 +6,8 @@
     <title>Interstellar - Página Oficial</title>
     <link rel="icon" type="image/png" href="img/logo.png">
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <header>
@@ -28,20 +30,136 @@
             <a href="https://www.youtube.com/watch?v=UoSSbmD9vqc&ab_channel=WarnerBros.PicturesEspa%C3%B1a" class="btn">Ver Tráiler</a>
         </div>
     </section>
+
+    <section>
+        <h2>Tráiler oficial</h2>
+        <video controls id="reproductor" src="video/video.mp4"></video>
+        <div class="controls">
+            <button id="botonReproducir">Reproducir</button>
+            <button id="botonPausar">Pausa</button>
+            <button id="botonSubirVolumen">+ Volumen</button>
+            <button id="botonBajarVolumen">- Volumen</button>
+            <button id="botonSilenciar">Silenciar</button>
+        </div>
+    </section>
+
+    <section id="noticias">
+        <h2>Últimas Noticias</h2>
+        <div class="noticias-container">
+            <div class="noticia">
+                <img src="img/blu_ray.jpg" alt="Blu-Ray">
+                <h3>Nuevo lanzamiento en Blu-Ray</h3>
+                <p>La película Interestelar ya está disponible en edición especial Blu-Ray con escenas adicionales y un documental exclusivo.</p>
+            </div>
+            <div class="noticia">
+                <img src="img/oscars.jpg" alt="Premios Oscar">
+                <h3>Premios y Nominaciones</h3>
+                <p>Interestelar ha sido nominada a los premios Oscar en la categoría de Mejor Dirección de Arte.</p>
+            </div>
+            <div class="noticia">
+                <img src="img/blak.jpg" alt="Agujero negro">
+                <h3>Científicos confirman teoría de la película</h3>
+                <p>Astrofísicos han revelado nuevos estudios que confirman la precisión de los efectos visuales del agujero negro en Interestelar.</p>
+            </div>
+            <div class="noticia">
+                <img src="img/bobo.jpg" alt="Hans Zimmer">
+                <h3>Hans Zimmer lanza edición especial del Soundtrack</h3>
+                <p>El legendario compositor Hans Zimmer ha lanzado una versión extendida de la banda sonora de la película con pistas inéditas.</p>
+            </div>
+        </div>
+    </section>
+    
+    
+    <section class="cuenta">
+        <h2>Cuenta Regresiva para el Estreno</h2>
+        <div id="time"></div>
+    </section>
+    
     
     <footer>
         <div class="footer-content">
-            <p>&copy; 2024 interestelar. Todos los derechos reservados.</p>
-            <ul class="footer-links">
-            </ul>
+            <p>&copy; 2024 Interestelar. Todos los derechos reservados.</p>
             <div class="social-links">
-                <a href="#"><i class="fab fa-facebook"><img src="img/facebook.png" alt="fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-twitter"><img src="img/x.avif" alt="x"></i></a>
-                <a href="#"><i class="fab fa-instagram"><img src="img/instagram.png" alt="insta"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script >
+        document.addEventListener("DOMContentLoaded", function () {
+        const fechaEstreno = new Date("Dec 31, 2025 00:00:00").getTime();
+
+        const actualizarCuentaRegresiva = setInterval(function () {
+        const ahora = new Date().getTime();
+        const distancia = fechaEstreno - ahora;
+
+        if (distancia < 0) {
+        clearInterval(actualizarCuentaRegresiva);
+        document.getElementById("time").innerHTML = "¡Ha llegado el día!";
+        return;
+        }
+
+        const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+        const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+        const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+
+        document.getElementById("time").innerHTML = 
+        `${dias}d ${horas}h ${minutos}m ${segundos}s`;
+        }, 1000);
+        });
+        const reproductor = document.getElementById('reproductor');
+        const playlist = document.getElementById('playlist');
+
+        // Función para obtener el valor de una clave en sessionStorage
+        function obtenerClaveStorage(clave) {
+            return sessionStorage.getItem(clave);
+        }
+
+        // Al cargar la página, obtener el volumen desde sessionStorage y aplicarlo
+        window.addEventListener('load', () => {
+            const volumenGuardado = obtenerClaveStorage('volumenVideo');
+            if (volumenGuardado) {
+                const volumen = parseFloat(volumenGuardado);
+                if (!isNaN(volumen)) {
+                    reproductor.volume = volumen;
+                    console.log('Volumen establecido desde sessionStorage: ', volumenGuardado);
+                }
+            } 
+        });
+
+        // Guardar el volumen en sessionStorage cuando cambia
+        reproductor.addEventListener('volumechange', () => {
+            const volumenActual = reproductor.volume;
+            console.log("Guardando volumen:", volumenActual);
+            sessionStorage.setItem('volumenVideo', volumenActual); // Guardar en sessionStorage
+        });
+
+        // Control de botones
+        document.getElementById('botonReproducir').addEventListener('click', () => reproductor.play());
+        document.getElementById('botonPausar').addEventListener('click', () => reproductor.pause());
+        document.getElementById('botonSubirVolumen').addEventListener('click', () => {
+            if (reproductor.volume < 1) reproductor.volume = Math.min(1, reproductor.volume + 0.1);
+        });
+        document.getElementById('botonBajarVolumen').addEventListener('click', () => {
+            if (reproductor.volume > 0) reproductor.volume = Math.max(0, reproductor.volume - 0.1);
+        });
+        document.getElementById('botonSilenciar').addEventListener('click', () => reproductor.muted = !reproductor.muted);
+
+        // Funcionalidad para cambiar video de la lista
+        playlist.addEventListener('click', (event) => {
+            if (event.target.tagName.toLowerCase() === 'li') {
+                const src = event.target.getAttribute('data-src');
+                reproductor.src = src;
+                reproductor.play();
+                document.querySelectorAll('.playlist li').forEach(item => {
+                    item.classList.remove('active');
+                });
+                event.target.classList.add('active');
+            }
+        });
+    </script>
 </body>
 </html>
